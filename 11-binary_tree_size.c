@@ -3,60 +3,29 @@
 #include <string.h>
 #include "binary_trees.h"
 
-size_t binary_tree_height_s_r(const binary_tree_t *tree)
+/**
+ * height - get count of nodes in binary tree
+ * @tree: Binary tree
+ * Return: number of nodes
+ */
+size_t height(const binary_tree_t *tree)
 {
-    if (!tree)
-    {
-        return 0;
-    }
-    else if (tree->right)
-    {
-        return 1 + (binary_tree_height_s_r(tree->right));
-    }
-    else if (tree->left)
-    {
-        return 1 + (binary_tree_height_s_r(tree->left));
-    }
-    else
-        return 0;
+	size_t height_l;
+	size_t height_r;
+
+	height_l = tree->left ? 1 + height(tree->left) : 0;
+	height_r = tree->right ? 1 + height(tree->right) : 0;
+	return (height_l + height_r);
 }
 
-size_t binary_tree_height_s_l(const binary_tree_t *tree)
-{
-    if (!tree)
-    {
-        return 0;
-    }
-    else if (tree->left)
-    {
-        return 1 + (binary_tree_height_s_l(tree->left));
-    }
-    else if (tree->right)
-    {
-        return 1 + (binary_tree_height_s_l(tree->right));
-    }
-    else
-        return 0;
-}
-
+/**
+ * binary_tree_size - Validate if the tree is not null
+ * @tree: Binary tree
+ * Return: number of nodes in binary tree
+ */
 size_t binary_tree_size(const binary_tree_t *tree)
 {
-    size_t result_l = 0;
-    size_t result_r = 0;
-    size_t total = 0;
-
-    if (tree)
-    {
-        result_l = binary_tree_height_s_l(tree);
-        result_r = binary_tree_height_s_r(tree);
-        printf("---\n");
-        printf("%ld", result_l);
-        printf("---\n");
-        printf("---\n");
-        printf("%ld", result_r);
-        printf("---\n");
-        total = result_r + result_l;
-        return total;
-    }
-    return (0);
+	if (tree)
+		return (1 + height(tree));
+	return (0);
 }
