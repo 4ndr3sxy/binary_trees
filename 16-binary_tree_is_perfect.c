@@ -47,11 +47,11 @@ size_t height(const binary_tree_t *tree, int validator)
 }
 
 /**
- * binary_tree_is_full - checks if a binary tree is full
+ * binary_tree_is_perfect - checks if a binary tree is perfect
  * @tree: Binary tree
- * Return: 1 if a binary tree is full or 0
+ * Return: 1 if a binary tree is perfect or 0
  */
-int binary_tree_is_full(const binary_tree_t *tree)
+int binary_tree_is_perfect(const binary_tree_t *tree)
 {
 	size_t resultHeight = 0;
 	size_t resultLevels = 0;
@@ -69,9 +69,7 @@ int binary_tree_is_full(const binary_tree_t *tree)
 			resultLevels++;
 			resultPow = _pow(2, resultLevels);
 			if (resultPow == resultCountNodes)
-			{
 				return (1);
-			}
 		}
 	}
 	return (0);
