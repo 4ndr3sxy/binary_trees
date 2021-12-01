@@ -4,7 +4,7 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_postorder - function that print binary tree using
+ * binary_tree_postorder_s - function that print binary tree using
  * post-order traversal
  * @tree: Binary tree
  * @func: Function pointer
@@ -20,7 +20,7 @@ void binary_tree_postorder_s(const binary_tree_t *tree, void (*func)(int))
 }
 
 /**
- * binary_tree_binary_tree_postorder - Validate if the tree is not null
+ * binary_tree_postorder - Validate if the tree is not null
  * @tree: Binary tree
  * @func: Function pointer
  * Return: Without return
